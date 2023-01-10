@@ -38,13 +38,13 @@ diff_dat = pd.DataFrame(list(zip(m_change,d_change)), columns= ['Date','Diff'])
 max_dat = diff_dat[diff_dat.Diff == diff_dat.Diff.max()]
 for row in max_dat.values: 
     max_date = row[0]
-    max_value = row[1]
+    max_value = int(row[1])
 
 #Get min change
 min_dat = diff_dat[diff_dat.Diff == diff_dat.Diff.min()]
 for row in min_dat.values: 
     min_date = row[0]
-    min_value = row[1]
+    min_value = int(row[1])
 
 #get the average
 d_avg = round(diff_dat['Diff'].sum()/len(diff_dat),2)
