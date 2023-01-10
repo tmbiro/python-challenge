@@ -50,4 +50,11 @@ for row in min_dat.values:
 d_avg = round(diff_dat['Diff'].sum()/len(diff_dat),2)
 
 #Print data
-print(f'```text\nFinancial Analysis\n----------------------------\nTotal Months: {months}\nTotal: ${d_sum}\nAverage Change: ${d_avg}\nGreatest Increase in Profits: {max_date} (${max_value})\nGreatest Decrease in Profits: {min_date} (${min_value})\n```')
+print(f'\nFinancial Analysis\n----------------------------\nTotal Months: {months}\nTotal: ${d_sum}\nAverage Change: ${d_avg}\nGreatest Increase in Profits: {max_date} (${max_value})\nGreatest Decrease in Profits: {min_date} (${min_value})\n')
+
+#Write a text file called "analysis.txt"
+output_path = os.path.join("output", "analysis.txt")
+
+#Add the output to the analysis.txt file
+with open('analysis.txt', 'w') as f:
+    f.write(f'Financial Analysis\n----------------------------\nTotal Months: {months}\nTotal: ${d_sum}\nAverage Change: ${d_avg}\nGreatest Increase in Profits: {max_date} (${max_value})\nGreatest Decrease in Profits: {min_date} (${min_value})')
