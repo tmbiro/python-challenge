@@ -58,7 +58,7 @@ message = (
     f'Total: ${d_sum}\n'
     f'Average Change: ${d_avg}\n'
     f'Greatest Increase in Profits: {max_date} (${max_value})\n'
-    f'Greatest Decrease in Profits: {min_date} (${min_value})')
+    f'Greatest Decrease in Profits: {min_date} (${min_value}) ')
 
 #Print message to terminal
 print(f'\n{message}\n')
