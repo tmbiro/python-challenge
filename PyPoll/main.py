@@ -1,3 +1,4 @@
+#Tifani Biro, January 2023
 #Script analyzes records to calculate each of the following:
 #* The total number of votes cast
 #* A complete list of candidates who received votes
