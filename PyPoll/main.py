@@ -23,16 +23,16 @@ candidates = election_data.groupby('Candidate')
 indi_votes = candidates.size()
 
 #Add a name to the votes column
-indi_votes = indi_votes.to_frame(name ='Votes')
+indi_votes = indi_votes.to_frame(name = 'Votes')
 
-#Since the first column with the candidate names is being treated like and index, we'll have to reset it to get a data column with the names
+#Note: the first column with the candidate names is being treated like and index
+#We'll have to reset it to get a data column with the names
 indi_votes = indi_votes.reset_index()
 
 #Create a percentage column
 percent_votes = round(((indi_votes["Votes"]/tot_votes)*100),3)
 indi_votes["Percentage"] = percent_votes
 
-#Great! Now we have a dataset
-#print(f'{candidates.head()}')
+#Great! Now we have a dataset to pull values from for the output
 print(f'{indi_votes}')
 
