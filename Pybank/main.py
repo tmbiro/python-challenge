@@ -1,9 +1,11 @@
-#Your task is to create a Python script that analyzes the records to calculate each of the following:
+#Tifani Biro, January 2023
+#Script analyzes the records to calculate each of the following:
 # * The total number of months included in the dataset
 # * The net total amount of "Profit/Losses" over the entire period
 # * The changes in "Profit/Losses" over the entire period, and then the average of those changes
 # * The greatest increase in profits (date and amount) over the entire period
 # * The greatest decrease in profits (date and amount) over the entire period
+#Also, outputs calculations to a text file
 
 # Modules
 import os
@@ -45,15 +47,27 @@ for row in min_dat.values:
     min_date = row[0]
     min_value = int(row[1])
 
-#get the average
+#Get the average
 d_avg = round(diff_dat['Diff'].sum()/len(diff_dat),2)
 
-#Print data
-print(f'\nFinancial Analysis\n----------------------------\nTotal Months: {months}\nTotal: ${d_sum}\nAverage Change: ${d_avg}\nGreatest Increase in Profits: {max_date} (${max_value})\nGreatest Decrease in Profits: {min_date} (${min_value})\n')
+#Pass the text you want through a variable called "message" first
+message = (
+    f'Financial Analysis\n'
+    f'----------------------------\n'
+    f'Total Months: {months}\n'
+    f'Total: ${d_sum}\n'
+    f'Average Change: ${d_avg}\n'
+    f'Greatest Increase in Profits: {max_date} (${max_value})\n'
+    f'Greatest Decrease in Profits: {min_date} (${min_value})')
+
+#Print message to terminal
+print(f'\n{message}\n')
 
 #Write a text file called "analysis.txt"
-output_path = os.path.join("analysis", "analysis.txt")
+output_path = os.path.join("Analysis", "analysis.txt")
 
-#Add the output to the analysis.txt file
-with open('analysis/analysis.txt', 'w') as f:
-    f.write(f'Financial Analysis\n----------------------------\nTotal Months: {months}\nTotal: ${d_sum}\nAverage Change: ${d_avg}\nGreatest Increase in Profits: {max_date} (${max_value})\nGreatest Decrease in Profits: {min_date} (${min_value})')
+#With the text file open and ready to be (w)ritten on
+with open('Analysis/analysis.txt', 'w') as txtfile:
+    
+    #Write the message to the text file
+    txtfile.write(message)

@@ -1,4 +1,4 @@
-# PyPoll Challenge
+# PyPoll Challenge from Penn Data Science Bootcamp, Spring 2023
 
 In this challenge, I was tasked with helping a small, rural town modernize its vote counting process.
 
@@ -10,7 +10,7 @@ I was given a set of poll data called [election_data.csv]. The dataset is compos
 * The total number of votes each candidate won
 * The winner of the election based on popular vote.
 
-MY analysis output needed to look similar to the following:
+My analysis output needed to look similar to the following:
 
 
   ```text

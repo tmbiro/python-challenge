@@ -1,4 +1,4 @@
-# PyBank Challenge
+# PyBank Challenge from Penn Data Science Bootcamp, Spring 2023
 
 For this challenge, I was tasked with creating a Python script to analyze the financial records of a company. The set of financial data I was given is called [budget_data.csv]. The dataset is composed of two columns: "Date" and "Profit/Losses".
 
@@ -9,7 +9,7 @@ My task was to create a Python script that analyzes the records to calculate eac
 * The greatest increase in profits (date and amount) over the entire period
 * The greatest decrease in profits (date and amount) over the entire period
 
-The analysis needed to look similar to the following:
+The analysis output needed to look similar to the following:
 
   ```text
   Financial Analysis
