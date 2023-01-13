@@ -24,31 +24,27 @@ d_sum = sum(budget_data['Profit/Losses'])
 d_change = budget_data['Profit/Losses'].diff()
 
 #Drop the first row of the differences list, since it only contains nan values
-d_change.drop(0,axis=0,inplace=True)
+d_change.drop(0,axis=0)
 
 #Create a list of months
 m_change = budget_data['Date']
 
 #Drop first month because its not a part of our differences data
-m_change.drop(0,axis=0,inplace=True)
+m_change.drop(0,axis=0)
 
 #Merge differences lists into a new dataframe
 diff_dat = pd.DataFrame(list(zip(m_change,d_change)), columns= ['Date','Diff'])
 
 #Get max change and its corresponding month
-max_dat = diff_dat[diff_dat.Diff == diff_dat.Diff.max()]
-for row in max_dat.values: 
-    max_date = row[0]
-    max_value = int(row[1])
+max_change = diff_dat[diff_dat.Diff == diff_dat.Diff.max()]
+max_date, max_value = max_change.values[0]
 
 #Get min change
-min_dat = diff_dat[diff_dat.Diff == diff_dat.Diff.min()]
-for row in min_dat.values: 
-    min_date = row[0]
-    min_value = int(row[1])
+min_change = diff_dat[diff_dat.Diff == diff_dat.Diff.min()]
+min_date, min_value = min_change.values
 
 #Get the average
-d_avg = round(diff_dat['Diff'].sum()/len(diff_dat),2)
+d_avg = round(diff_dat['Diff'].mean(),2)
 
 #Pass the text you want through a variable called "message" first
 message = (
@@ -57,8 +53,8 @@ message = (
     f'Total Months: {months}\n'
     f'Total: ${d_sum}\n'
     f'Average Change: ${d_avg}\n'
-    f'Greatest Increase in Profits: {max_date} (${max_value})\n'
-    f'Greatest Decrease in Profits: {min_date} (${min_value}) ')
+    f'Greatest Increase in Profits: {max_date} (${int(max_value)})\n'
+    f'Greatest Decrease in Profits: {min_date} (${int(min_value)}) ')
 
 #Print message to terminal
 print(f'\n{message}\n')
