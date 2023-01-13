@@ -38,7 +38,6 @@ max_Candidate = max_dat["Candidate"].squeeze()
 #Print data in terminal
 
 #Pass the message you want for the total number of votes into a variable called "message1"
-#NOTE: I wanted the code for the text to be indented the same, so I used f', but you could also use f''' here instead of repeating f' and writing \n for a new line
 message1 = dedent(f'''
     Election Results
     -------------------------
