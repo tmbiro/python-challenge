@@ -39,13 +39,14 @@ max_Candidate = max_dat["Candidate"].squeeze()
 
 #Pass the message you want for the total number of votes into a variable called "message1"
 #NOTE: I wanted the code for the text to be indented the same, so I used f', but you could also use f''' here instead of repeating f' and writing \n for a new line
-message1 = dedent(
-    f'''
+message1 = dedent(f'''
     Election Results
     -------------------------
     Total Votes: {tot_votes}
-    -------------------------
-    '''.rstrip())
+    -------------------------''')
+
+#Print message 1
+print(message1) 
 
 #Create an empty dataset to store information based on the rows of candidates
 outcome_rows = []
@@ -54,15 +55,17 @@ outcome_rows = []
 for index,row in indi_votes.iterrows():
     outcome_rows.append(f"{row['Candidate']}: {row['Percentage']}% ({row['Votes']} votes)")
 
-#Store message of who won in a variable called "message2"
-message2 = dedent(
-    f'''
-    -------------------------
-    Winner: {max_Candidate}
-    -------------------------
-    '''.rstrip())
+#Print message 2
+print(*outcome_rows, sep="\n")
 
-print(message1, *outcome_rows, message2, sep="\n")
+#Store message of who won in a variable called "message2"
+message2 = dedent(f'''
+   -------------------------
+   Winner: {max_Candidate}
+   -------------------------''')
+
+#Print message 2 and remove extra space before it
+print(f'\033[F{message2}')
 
 #With the text file open and in (w)riting mode for any operating system
 with open(Path(__file__).parent/'Analysis/analysis.txt', 'w') as txtfile:
