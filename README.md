@@ -71,4 +71,4 @@ The script also prints the analysis to the terminal and export a text file with 
 
 ## References
 
-© 2022 Trilogy Education Services, a 2U, Inc. brand. All Rights Reserved.
+This challenge was provided by © 2022 Trilogy Education Services, a 2U, Inc. brand. All Rights Reserved.
